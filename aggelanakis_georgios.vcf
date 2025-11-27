@@ -5,9 +5,9 @@ N:Αγγελανάκης;Γεώργιος;;;
 TITLE:Χειρουργός Οδοντίατρος
 ORG:d4U Dentist - Dental Group
 EMAIL;TYPE=WORK:angelakis.g@yahoo.com
-TEL;TYPE=CELL:+306970013333
-TEL;TYPE=WORK:+302810282060
-TEL;TYPE=WORK:+302810327772
+TEL;TYPE=CELL,VOICE:+306970013333
+TEL;TYPE=WORK,VOICE:+302810282060
+TEL;TYPE=WORK,VOICE:+302810327772
 ADR;TYPE=WORK:;;Αμάλθειας 17;Ηράκλειο Κρήτης;;71201;Ελλάδα
 ADR;TYPE=WORK:;;Λεωφ. Κνωσού 93;Ηράκλειο Κρήτης;;71409;Ελλάδα
 END:VCARD
