@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Αγγελάκης Εμμανουήλ
+N:Αγγελάκης;Εμμανουήλ;;;
+TITLE:Χειρουργός Οδοντίατρος - Επιστημονικά Υπεύθυνος
+ORG:d4U Dentist - Dental Group
+EMAIL;TYPE=WORK:d4ugreece@gmail.com
+TEL;TYPE=CELL,VOICE:+306944642318
+TEL;TYPE=WORK,VOICE:+302810282060
+TEL;TYPE=WORK,VOICE:+302810327772
+ADR;TYPE=WORK:;;Αμάλθειας 17;Ηράκλειο Κρήτης;;71201;Ελλάδα
+ADR;TYPE=WORK:;;Λεωφ. Κνωσού 93;Ηράκλειο Κρήτης;;71409;Ελλάδα
+END:VCARD
