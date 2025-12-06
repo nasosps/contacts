@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Πετράκη;Ελίνα;;;
+FN:Ελίνα Πετράκη
+ORG:Pi for Pilates;
+TITLE:Second Generation Pilates Teacher
+TEL;TYPE=WORK,VOICE:+30 2813 011660
+TEL;TYPE=CELL,VOICE:+30 6943 732075
+EMAIL;TYPE=INTERNET,PREF:elina_petraki@hotmail.gr
+ADR;TYPE=WORK:;;Σηφάκη 8;Ηράκλειο;Κρήτη;;Greece
+END:VCARD
