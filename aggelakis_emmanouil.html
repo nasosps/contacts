@@ -121,13 +121,13 @@
             color: var(--text-muted);
         }
 
-        /* Μικρός, διακριτικός αριθμός κάτω δεξιά */
+        /* Μικρός, "αόρατος" αλλά επιλέξιμος αριθμός κάτω δεξιά */
         .views {
             position: absolute;
             bottom: 4px;
             right: 8px;
             font-size: 0.65rem;
-            color: #d1d5db; /* πολύ διακριτικό γκρι */
+            color: #ffffff; /* λευκό: δεν φαίνεται στο λευκό φόντο, αλλά φαίνεται με selection */
         }
     </style>
 </head>
@@ -168,7 +168,7 @@
 
 <script>
 const COUNTER_ID = 'aggelakis_emmanouil';
-const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92'; // βάλε εδώ το δικό σου API key
+const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92';
 
 fetch('https://api.api-ninjas.com/v1/counter?id=' + encodeURIComponent(COUNTER_ID) + '&hit=true', {
     method: 'GET',
