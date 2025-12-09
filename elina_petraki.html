@@ -104,7 +104,13 @@
             bottom: 4px;
             right: 8px;
             font-size: 0.65rem;
-            color: #222222; /* ίδιο με το background: δεν φαίνεται, αλλά φαίνεται με selection */
+            color: #222222; /* ίδιο με το φόντο του body – δεν φαίνεται */
+        }
+
+        /* Όταν επιλέγεται (Ctrl+A), να φαίνεται καθαρά */
+        .views span::selection {
+            color: #ffffff;       /* άσπρο κείμενο */
+            background: #2563eb;  /* μπλε φόντο επιλογής */
         }
     </style>
 </head>
