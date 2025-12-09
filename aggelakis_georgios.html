@@ -27,6 +27,7 @@
             padding: 22px 22px 20px;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
             border: 1px solid #e5e7eb;
+            position: relative; /* για το counter κάτω δεξιά */
         }
 
         .brand {
@@ -119,6 +120,15 @@
             font-size: 0.78rem;
             color: var(--text-muted);
         }
+
+        /* Μικρός, "αόρατος" αλλά επιλέξιμος αριθμός κάτω δεξιά */
+        .views {
+            position: absolute;
+            bottom: 4px;
+            right: 8px;
+            font-size: 0.65rem;
+            color: #ffffff; /* λευκό: δεν φαίνεται, αλλά φαίνεται με selection */
+        }
     </style>
 </head>
 <body>
@@ -128,7 +138,6 @@
         <div class="brand-top">D4U</div>
         <div class="brand-sub">DENTIST · DENTAL GROUP</div>
     </div>
-
 
     <h1>Αγγελάκης Γεώργιος</h1>
     <h2>Χειρουργός Οδοντίατρος</h2>
@@ -150,6 +159,39 @@
     <a class="button" href="aggelakis_georgios.vcf">Προσθήκη επαφής (vCard)</a>
     <div class="hint">Σε Android / iPhone, πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκευτεί η επαφή.</div>
 
+    <!-- ΜΟΝΟ ένας αριθμός κάτω δεξιά -->
+    <div class="views">
+        <span id="view-counter">0</span>
+    </div>
+
 </div>
+
+<script>
+const COUNTER_ID = 'aggelakis_georgios';  // ΜΟΝΑΔΙΚΟ ID ΓΙΑ ΑΥΤΗ ΤΗ ΣΕΛΙΔΑ
+const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92'; // ίδιο key με Εμμανουήλ
+
+fetch('https://api.api-ninjas.com/v1/counter?id=' + encodeURIComponent(COUNTER_ID) + '&hit=true', {
+    method: 'GET',
+    headers: {
+        'X-Api-Key': API_KEY
+    }
+})
+.then(function(response) {
+    if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+    }
+    return response.json();
+})
+.then(function(data) {
+    var value = data && typeof data.value === 'number' ? data.value : 0;
+    document.getElementById('view-counter').textContent =
+        new Intl.NumberFormat('el-GR').format(value);
+})
+.catch(function(error) {
+    console.error('Σφάλμα στον μετρητή επισκέψεων:', error);
+    document.getElementById('view-counter').textContent = '—';
+});
+</script>
+
 </body>
 </html>
