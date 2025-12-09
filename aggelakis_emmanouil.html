@@ -27,6 +27,7 @@
             padding: 22px 22px 20px;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
             border: 1px solid #e5e7eb;
+            position: relative;
         }
 
         .brand {
@@ -119,6 +120,13 @@
             font-size: 0.78rem;
             color: var(--text-muted);
         }
+
+        .views {
+            margin-top: 10px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -128,7 +136,6 @@
         <div class="brand-top">D4U</div>
         <div class="brand-sub">DENTIST · DENTAL GROUP</div>
     </div>
-
 
     <h1>Αγγελάκης Εμμανουήλ</h1>
     <h2>Χειρουργός Οδοντίατρος – Επιστημονικά Υπεύθυνος</h2>
@@ -150,6 +157,31 @@
     <a class="button" href="aggelakis_emmanouil.vcf">Προσθήκη επαφής (vCard)</a>
     <div class="hint">Σε Android / iPhone, πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκευτεί η επαφή.</div>
 
+    <!-- Μετρητής επισκέψεων -->
+    <div class="views">
+        :
+        <span id="view-counter">...</span>
+    </div>
+
 </div>
+
+<script>
+// Απλός μετρητής με χρήση της υπηρεσίας CountAPI
+// Μπορείς να αλλάξεις το "d4u-aggelakis" και "contact-page" για άλλο namespace/κλειδί
+fetch('https://api.countapi.xyz/hit/d4u-aggelakis/contact-page')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        // data.value περιέχει τον αριθμό των επισκέψεων
+        document.getElementById('view-counter').textContent = 
+            new Intl.NumberFormat('el-GR').format(data.value);
+    })
+    .catch(function(error) {
+        console.error('Σφάλμα στον μετρητή επισκέψεων:', error);
+        document.getElementById('view-counter').textContent = '—';
+    });
+</script>
+
 </body>
 </html>
