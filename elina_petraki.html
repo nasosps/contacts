@@ -28,6 +28,7 @@
             flex-direction: column;
             align-items: center;
             gap: 28px;
+            position: relative; /* για τον counter κάτω δεξιά */
         }
 
         .cards-wrapper {
@@ -96,6 +97,15 @@
                 flex-direction: column;
             }
         }
+
+        /* Μικρός, "αόρατος" αλλά επιλέξιμος αριθμός κάτω δεξιά */
+        .views {
+            position: absolute;
+            bottom: 4px;
+            right: 8px;
+            font-size: 0.65rem;
+            color: #222222; /* ίδιο με το background: δεν φαίνεται, αλλά φαίνεται με selection */
+        }
     </style>
 </head>
 <body>
@@ -124,6 +134,39 @@
         </div>
     </div>
 
+    <!-- ΜΟΝΟ ένας αριθμός κάτω δεξιά, "κρυφός" -->
+    <div class="views">
+        <span id="view-counter">0</span>
+    </div>
+
 </div>
+
+<script>
+const COUNTER_ID = 'elina_petraki';  // μοναδικό ID για αυτή τη σελίδα
+const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92'; // ίδιο API key
+
+fetch('https://api.api-ninjas.com/v1/counter?id=' + encodeURIComponent(COUNTER_ID) + '&hit=true', {
+    method: 'GET',
+    headers: {
+        'X-Api-Key': API_KEY
+    }
+})
+.then(function(response) {
+    if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+    }
+    return response.json();
+})
+.then(function(data) {
+    var value = data && typeof data.value === 'number' ? data.value : 0;
+    document.getElementById('view-counter').textContent =
+        new Intl.NumberFormat('el-GR').format(value);
+})
+.catch(function(error) {
+    console.error('Σφάλμα στον μετρητή επισκέψεων:', error);
+    document.getElementById('view-counter').textContent = '—';
+});
+</script>
+
 </body>
 </html>
