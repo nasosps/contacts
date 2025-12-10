@@ -167,30 +167,16 @@
 </div>
 
 <script>
-const COUNTER_ID = 'aggelakis_emmanouil';
-const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92';
-
-fetch('https://api.api-ninjas.com/v1/counter?id=' + encodeURIComponent(COUNTER_ID) + '&hit=true', {
-    method: 'GET',
-    headers: {
-        'X-Api-Key': API_KEY
-    }
-})
-.then(function(response) {
-    if (!response.ok) {
-        throw new Error('HTTP error ' + response.status);
-    }
-    return response.json();
-})
-.then(function(data) {
-    var value = data && typeof data.value === 'number' ? data.value : 0;
-    document.getElementById('view-counter').textContent =
-        new Intl.NumberFormat('el-GR').format(value);
-})
-.catch(function(error) {
-    console.error('Σφάλμα στον μετρητή επισκέψεων:', error);
-    document.getElementById('view-counter').textContent = '—';
-});
+fetch('https://api.countapi.xyz/hit/nasosps/aggelakis_emmanouil')
+  .then(function (res) { return res.json(); })
+  .then(function (data) {
+      if (data && typeof data.value === 'number') {
+          document.getElementById('view-counter').textContent = data.value;
+      }
+  })
+  .catch(function (err) {
+      console.error('Σφάλμα counter:', err);
+  });
 </script>
 
 </body>
