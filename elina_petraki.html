@@ -96,9 +96,19 @@
             .cards-wrapper {
                 flex-direction: column;
             }
+
+            /* λίγο μικρότερα περιθώρια & ελαφρώς μεγαλύτερο icon */
+            .views {
+                bottom: 8px;
+                right: 8px;
+            }
+
+            .views img {
+                height: 18px;
+            }
         }
 
-        /* Badge μετρητή κάτω δεξιά */
+        /* Badge μετρητή κάτω δεξιά (όλες οι οθόνες) */
         .views {
             position: absolute;
             bottom: 16px;
@@ -108,6 +118,7 @@
         .views img {
             height: 16px;       /* μικρό, διακριτικό */
             opacity: 0.75;      /* λίγο «ήσυχο» πάνω στο φόντο */
+            display: block;
         }
     </style>
 </head>
@@ -122,7 +133,7 @@
 
         <!-- Κουμπί & οδηγίες ΑΝΑΜΕΣΑ στις δύο εικόνες -->
         <div class="middle-block">
-            <a class="button" href="elina_petraki.vcf">
+            <a class="button" href="elina_petraki.vcf" download>
                 Προσθήκη επαφής (vCard)
             </a>
             <div class="hint">
