@@ -27,7 +27,7 @@
             padding: 22px 22px 20px;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
             border: 1px solid #e5e7eb;
-            position: relative; /* για το badge κάτω δεξιά */
+            position: relative; /* για τον κρυφό counter */
         }
 
         .brand {
@@ -121,17 +121,17 @@
             color: var(--text-muted);
         }
 
-        /* Μικρό badge κάτω δεξιά */
+        /* Κρυφός αριθμός κάτω δεξιά */
         .views {
             position: absolute;
-            bottom: 6px;
+            bottom: 4px;
             right: 8px;
             font-size: 0.65rem;
+            color: #ffffff; /* δεν φαίνεται στο μάτι */
         }
-
-        .views img {
-            max-height: 16px;   /* μικρό ύψος */
-            opacity: 0.7;       /* λίγο πιο “ήσυχο” οπτικά */
+        .views span::selection {
+            color: #ffffff;
+            background: #2563eb;
         }
     </style>
 </head>
@@ -150,27 +150,57 @@
 
     <div class="section-title">Τηλέφωνα</div>
     <div class="item"><span class="label">Κινητό:</span> +30 6944 642318</div>
-    <div class="item"><span class="label">Ιατρείο Α:</span> +30 2810 282060</div>
-    <div class="item"><span class="label">Ιατρείο Β:</span> +30 2810 327772</div>
+    <div class="item"><span class="label">Ιατρείο A:</span> +30 2810 282060</div>
+    <div class="item"><span class="label">Ιατρείο B:</span> +30 2810 327772</div>
 
     <div class="section-title">Email</div>
     <div class="item">d4ugreece@gmail.com</div>
 
     <div class="section-title">Διευθύνσεις</div>
-    <div class="item"><span class="label">Ιατρείο Α:</span> Αμάλθειας 17, Ηράκλειο Κρήτης, 71201</div>
-    <div class="item"><span class="label">Ιατρείο Β:</span> Λεωφ. Κνωσού 93, Ηράκλειο Κρήτης, 71409</div>
+    <div class="item"><span class="label">Ιατρείο A:</span> Αμάλθειας 17, Ηράκλειο Κρήτης, 71201</div>
+    <div class="item"><span class="label">Ιατρείο B:</span> Λεωφ. Κνωσού 93, Ηράκλειο Κρήτης, 71409</div>
 
     <a class="button" href="aggelakis_emmanouil.vcf">Προσθήκη επαφής (vCard)</a>
-    <div class="hint">Σε Android / iPhone, πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκευτεί η επαφή.</div>
+    <div class="hint">
+        Σε Android / iPhone, πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκευτεί η επαφή.
+    </div>
 
-    <!-- ΜΟΝΟ το badge του hitscounter.dev κάτω δεξιά -->
+    <!-- Κρυφός μετρητής -->
     <div class="views">
-        <img
-            src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fpage%2Faggelakis_emmanouil.html&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC"
-            alt="Visits">
+        <span id="view-counter">0</span>
     </div>
 
 </div>
+
+<script>
+const COUNTER_ID = 'aggelakis_emmanouil';  // μοναδικό ID
+const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92';
+
+fetch(
+    'https://api.api-ninjas.com/v1/counter?id=' +
+    encodeURIComponent(COUNTER_ID) +
+    '&hit=true',
+    {
+        method: 'GET',
+        headers: { 'X-Api-Key': API_KEY }
+    }
+)
+.then(function(response) {
+    if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+    }
+    return response.json();
+})
+.then(function(data) {
+    var value = (data && typeof data.value === 'number') ? data.value : 0;
+    document.getElementById('view-counter').textContent =
+        new Intl.NumberFormat('el-GR').format(value);
+})
+.catch(function(error) {
+    console.error('Σφάλμα στον μετρητή επισκέψεων:', error);
+    document.getElementById('view-counter').textContent = '—';
+});
+</script>
 
 </body>
 </html>
