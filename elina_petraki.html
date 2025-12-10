@@ -56,6 +56,7 @@
             display: block;
         }
 
+        /* Μεσαίο μπλοκ: κουμπί & οδηγίες ανάμεσα στις 2 εικόνες */
         .middle-block {
             display: flex;
             flex-direction: column;
@@ -90,23 +91,23 @@
             max-width: 220px;
         }
 
+        /* Στο κινητό: κάθετα, με σειρά Front → κουμπί → Back */
         @media (max-width: 768px) {
             .cards-wrapper {
                 flex-direction: column;
             }
         }
 
-        /* Κρυφός μετρητής κάτω δεξιά */
+        /* Badge μετρητή κάτω δεξιά */
         .views {
             position: absolute;
-            bottom: 24px;
-            right: 24px;
-            font-size: 0.65rem;
-            color: transparent; 
+            bottom: 16px;
+            right: 16px;
         }
-        .views span::selection {
-            color: #ffffff;
-            background: #2563eb;
+
+        .views img {
+            height: 16px;       /* μικρό, διακριτικό */
+            opacity: 0.75;      /* λίγο «ήσυχο» πάνω στο φόντο */
         }
     </style>
 </head>
@@ -119,7 +120,7 @@
             <img src="elina_petraki_front.png" alt="Elina Petraki - Pi for Pilates (Front)">
         </div>
 
-        <!-- Κουμπί & οδηγίες ανάμεσα στις 2 εικόνες -->
+        <!-- Κουμπί & οδηγίες ΑΝΑΜΕΣΑ στις δύο εικόνες -->
         <div class="middle-block">
             <a class="button" href="elina_petraki.vcf">
                 Προσθήκη επαφής (vCard)
@@ -136,42 +137,13 @@
         </div>
     </div>
 
-    <!-- Κρυφός μετρητής επισκέψεων -->
+    <!-- Badge μετρητή επισκέψεων (hitscounter.dev) -->
     <div class="views">
-        <span id="view-counter">0</span>
+        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fcontacts%2Felina_petraki.html&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC"
+             alt="">
     </div>
 
 </div>
-
-<script>
-const COUNTER_ID = 'elina_petraki';  // μοναδικό ID
-const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92';
-
-fetch(
-    'https://api.api-ninjas.com/v1/counter?id=' +
-    encodeURIComponent(COUNTER_ID) +
-    '&hit=true',
-    {
-        method: 'GET',
-        headers: { 'X-Api-Key': API_KEY }
-    }
-)
-.then(function(response) {
-    if (!response.ok) {
-        throw new Error('HTTP error ' + response.status);
-    }
-    return response.json();
-})
-.then(function(data) {
-    var value = (data && typeof data.value === 'number') ? data.value : 0;
-    document.getElementById('view-counter').textContent =
-        new Intl.NumberFormat('el-GR').format(value);
-})
-.catch(function(error) {
-    console.error('Σφάλμα στον μετρητή επισκέψεων:', error);
-    document.getElementById('view-counter').textContent = '—';
-});
-</script>
 
 </body>
 </html>
