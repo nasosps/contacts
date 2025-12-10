@@ -98,16 +98,22 @@
             }
         }
 
-        /* Badge μετρητή κάτω δεξιά */
+        /* Κρυφός μετρητής επισκέψεων με badge 1×1 px */
         .views {
             position: absolute;
-            bottom: 16px;
-            right: 16px;
+            bottom: 24px;
+            right: 24px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;      /* ό,τι κι αν δείξει να μην φαίνεται */
+            pointer-events: none;
         }
 
         .views img {
-            height: 16px;       /* μικρό, διακριτικό */
-            opacity: 0.75;      /* λίγο «ήσυχο» πάνω στο φόντο */
+            width: 1px;
+            height: 1px;
+            opacity: 0.01;         /* πρακτικά αόρατο */
+            display: block;
         }
     </style>
 </head>
@@ -137,13 +143,12 @@
         </div>
     </div>
 
-    <!-- Badge μετρητή επισκέψεων (hitscounter.dev) -->
+    <!-- Κρυφό badge hitscounter.dev (1×1 px, χωρίς κείμενο) -->
     <div class="views">
         <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fcontacts%2Felina_petraki.html&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC"
-             alt="Μετρητής επισκέψεων">
+             alt="">
     </div>
 
 </div>
-
 </body>
 </html>
