@@ -27,7 +27,7 @@
             padding: 22px 22px 20px;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
             border: 1px solid #e5e7eb;
-            position: relative;
+            position: relative; /* για τον counter */
         }
 
         .brand {
@@ -121,12 +121,31 @@
             color: var(--text-muted);
         }
 
+        /* Badge μετρητή κάτω δεξιά */
         .views {
             position: absolute;
-            bottom: 4px;
-            right: 8px;
-            font-size: 0.65rem;
-            color: #ffffff; /* πρακτικά αόρατο */
+            bottom: 12px;
+            right: 12px;
+        }
+
+        .views img {
+            height: 16px;
+            opacity: 0.75;
+            display: block;
+        }
+
+        /* Προαιρετικά, λίγο πιο σφιχτό στο πολύ μικρό πλάτος */
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+            .views {
+                bottom: 8px;
+                right: 8px;
+            }
+            .views img {
+                height: 18px;
+            }
         }
     </style>
 </head>
@@ -155,41 +174,15 @@
     <div class="item"><span class="label">Ιατρείο Α:</span> Αμάλθειας 17, Ηράκλειο Κρήτης, 71201</div>
     <div class="item"><span class="label">Ιατρείο Β:</span> Λεωφ. Κνωσού 93, Ηράκλειο Κρήτης, 71409</div>
 
-    <a class="button" href="aggelakis_emmanouil.vcf">Προσθήκη επαφής (vCard)</a>
+    <a class="button" href="aggelakis_emmanouil.vcf" download>Προσθήκη επαφής (vCard)</a>
     <div class="hint">Σε Android / iPhone, πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκευτεί η επαφή.</div>
 
+    <!-- Badge μετρητή επισκέψεων (hitscounter.dev) -->
     <div class="views">
-        <span id="view-counter">0</span>
+        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fcontacts%2Faggelakis_emmanouil.html&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC"
+             alt="">
     </div>
 
 </div>
-
-<script>
-const COUNTER_ID = 'aggelakis_emmanouil';
-const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92';
-
-fetch('https://api.api-ninjas.com/v1/counter?id=' + encodeURIComponent(COUNTER_ID) + '&hit=true', {
-    method: 'GET',
-    headers: {
-        'X-Api-Key': API_KEY
-    }
-})
-.then(function(response) {
-    if (!response.ok) {
-        throw new Error('HTTP error ' + response.status);
-    }
-    return response.json();
-})
-.then(function(data) {
-    var value = data && typeof data.value === 'number' ? data.value : 0;
-    document.getElementById('view-counter').textContent =
-        new Intl.NumberFormat('el-GR').format(value);
-})
-.catch(function(error) {
-    console.error('Σφάλμα στον μετρητή επισκέψεων:', error);
-    document.getElementById('view-counter').textContent = '—';
-});
-</script>
-
 </body>
 </html>
