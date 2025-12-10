@@ -27,7 +27,7 @@
             padding: 22px 22px 20px;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
             border: 1px solid #e5e7eb;
-            position: relative; /* για το counter κάτω δεξιά */
+            position: relative; /* για το badge κάτω δεξιά */
         }
 
         .brand {
@@ -121,16 +121,17 @@
             color: var(--text-muted);
         }
 
-        /* Μικρός αριθμός / badge κάτω δεξιά */
+        /* Μικρό badge κάτω δεξιά */
         .views {
             position: absolute;
-            bottom: 4px;
+            bottom: 6px;
             right: 8px;
             font-size: 0.65rem;
         }
 
         .views img {
-            height: 16px; /* προαιρετικά, να είναι μικρό */
+            max-height: 16px;   /* μικρό ύψος */
+            opacity: 0.7;       /* λίγο πιο “ήσυχο” οπτικά */
         }
     </style>
 </head>
@@ -162,11 +163,14 @@
     <a class="button" href="aggelakis_emmanouil.vcf">Προσθήκη επαφής (vCard)</a>
     <div class="hint">Σε Android / iPhone, πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκευτεί η επαφή.</div>
 
-    <!-- Badge views κάτω δεξιά -->
+    <!-- ΜΟΝΟ το badge του hitscounter.dev κάτω δεξιά -->
     <div class="views">
-        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fpage%2Faggelakis_emmanouil.html&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Visits">
+        <img
+            src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fpage%2Faggelakis_emmanouil.html&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC"
+            alt="Visits">
     </div>
 
 </div>
+
 </body>
 </html>
