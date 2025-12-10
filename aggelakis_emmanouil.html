@@ -121,13 +121,16 @@
             color: var(--text-muted);
         }
 
-        /* Μικρός, "αόρατος" αλλά επιλέξιμος αριθμός κάτω δεξιά */
+        /* Μικρός αριθμός / badge κάτω δεξιά */
         .views {
             position: absolute;
             bottom: 4px;
             right: 8px;
             font-size: 0.65rem;
-            color: #ffffff; /* λευκό: δεν φαίνεται στο λευκό φόντο, αλλά φαίνεται με selection */
+        }
+
+        .views img {
+            height: 16px; /* προαιρετικά, να είναι μικρό */
         }
     </style>
 </head>
@@ -159,25 +162,11 @@
     <a class="button" href="aggelakis_emmanouil.vcf">Προσθήκη επαφής (vCard)</a>
     <div class="hint">Σε Android / iPhone, πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκευτεί η επαφή.</div>
 
-    <!-- ΜΟΝΟ ένας αριθμός κάτω δεξιά -->
+    <!-- Badge views κάτω δεξιά -->
     <div class="views">
-        <span id="view-counter">0</span>
+        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fpage%2Faggelakis_emmanouil.html&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Visits">
     </div>
 
 </div>
-
-<script>
-fetch('https://api.countapi.xyz/hit/nasosps/aggelakis_emmanouil')
-  .then(function (res) { return res.json(); })
-  .then(function (data) {
-      if (data && typeof data.value === 'number') {
-          document.getElementById('view-counter').textContent = data.value;
-      }
-  })
-  .catch(function (err) {
-      console.error('Σφάλμα counter:', err);
-  });
-</script>
-
 </body>
 </html>
