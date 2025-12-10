@@ -124,12 +124,28 @@
         /* Badge μετρητή κάτω δεξιά */
         .views {
             position: absolute;
-            bottom: 4px;
-            right: 8px;
+            bottom: 12px;
+            right: 12px;
         }
 
         .views img {
             height: 16px; /* μικρό, διακριτικό badge */
+            opacity: 0.75;
+            display: block;
+        }
+
+        /* Λίγο πιο σφιχτό στο πολύ μικρό πλάτος */
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+            .views {
+                bottom: 8px;
+                right: 8px;
+            }
+            .views img {
+                height: 18px;
+            }
         }
     </style>
 </head>
@@ -158,7 +174,7 @@
     <div class="item"><span class="label">Ιατρείο Α:</span> Αμάλθειας 17, Ηράκλειο Κρήτης, 71201</div>
     <div class="item"><span class="label">Ιατρείο Β:</span> Λεωφ. Κνωσού 93, Ηράκλειο Κρήτης, 71409</div>
 
-    <a class="button" href="aggelakis_georgios.vcf">Προσθήκη επαφής (vCard)</a>
+    <a class="button" href="aggelakis_georgios.vcf" download>Προσθήκη επαφής (vCard)</a>
     <div class="hint">Σε Android / iPhone, πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκευτεί η επαφή.</div>
 
     <!-- Badge μετρητή επισκέψεων (hitscounter.dev) -->
