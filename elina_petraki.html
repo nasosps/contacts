@@ -98,19 +98,16 @@
             }
         }
 
-        /* Μικρός, αόρατος αλλά επιλέξιμος αριθμός κάτω δεξιά */
+        /* Badge μετρητή κάτω δεξιά */
         .views {
             position: absolute;
-            bottom: 24px;   /* λίγο πιο πάνω */
-            right: 24px;    /* λίγο πιο αριστερά */
-            font-size: 0.65rem;
-            color: transparent; /* δεν φαίνεται καθόλου */
+            bottom: 16px;
+            right: 16px;
         }
 
-        /* Όταν επιλέγεται (Ctrl+A), να φαίνεται καθαρά */
-        .views span::selection {
-            color: #ffffff;       /* άσπρο κείμενο */
-            background: #2563eb;  /* μπλε φόντο επιλογής */
+        .views img {
+            height: 16px;       /* μικρό, διακριτικό */
+            opacity: 0.75;      /* λίγο «ήσυχο» πάνω στο φόντο */
         }
     </style>
 </head>
@@ -140,39 +137,13 @@
         </div>
     </div>
 
-    <!-- ΜΟΝΟ ένας αριθμός κάτω δεξιά, "κρυφός" -->
+    <!-- Badge μετρητή επισκέψεων (hitscounter.dev) -->
     <div class="views">
-        <span id="view-counter">0</span>
+        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fcontacts%2Felina_petraki.html&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC"
+             alt="Μετρητής επισκέψεων">
     </div>
 
 </div>
-
-<script>
-const COUNTER_ID = 'elina_petraki';  // μοναδικό ID για αυτή τη σελίδα
-const API_KEY   = 'b8TNwIeUeOv+788KOJiyZw==MxYAvtFJ6MsKVe92'; // ίδιο API key
-
-fetch('https://api.api-ninjas.com/v1/counter?id=' + encodeURIComponent(COUNTER_ID) + '&hit=true', {
-    method: 'GET',
-    headers: {
-        'X-Api-Key': API_KEY
-    }
-})
-.then(function(response) {
-    if (!response.ok) {
-        throw new Error('HTTP error ' + response.status);
-    }
-    return response.json();
-})
-.then(function(data) {
-    var value = data && typeof data.value === 'number' ? data.value : 0;
-    document.getElementById('view-counter').textContent =
-        new Intl.NumberFormat('el-GR').format(value);
-})
-.catch(function(error) {
-    console.error('Σφάλμα στον μετρητή επισκέψεων:', error);
-    document.getElementById('view-counter').textContent = '—';
-});
-</script>
 
 </body>
 </html>
