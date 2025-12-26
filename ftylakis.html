@@ -14,7 +14,6 @@
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            /* Σκούρο φόντο όπως στο παράδειγμα */
             background: #222222;
             color: #f5f5f5;
             min-height: 100vh;
@@ -43,23 +42,21 @@
             align-items: center;
         }
 
-        /* Στυλ Κάρτας (λευκό πλαίσιο, σκιά) */
+        /* Στυλ Κάρτας */
         .card {
-            /* Ρυθμίστε το πλάτος ανάλογα με την εικόνα σας αν χρειάζεται */
             width: 340px; 
             height: auto;
             border: 10px solid #f5f5f5;
-            background: #000000; /* Μαύρο φόντο μέσα στην κάρτα για να δένει με το λογότυπο */
+            background: #000000;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            border-radius: 4px; /* Ελαφριά στρογγυλοποίηση στις γωνίες του πλαισίου */
+            border-radius: 4px;
         }
 
         .card img {
             width: 100%;
             height: auto;
             display: block;
-            /* Αν η εικόνα δεν γεμίζει καλά, δοκίμασε: object-fit: cover; και σταθερό height στο .card */
         }
 
         /* Μεσαίο μπλοκ: κουμπί & οδηγίες */
@@ -80,7 +77,6 @@
             padding: 12px 24px;
             border-radius: 999px;
             border: none;
-            /* Μπλε χρώμα */
             background: #2563eb;
             color: #ffffff;
             font-size: 1rem;
@@ -98,7 +94,6 @@
             transform: translateY(-2px);
         }
 
-        /* Μικρό κείμενο οδηγιών */
         .hint {
             font-size: 0.85rem;
             color: #d1d5db;
@@ -106,7 +101,19 @@
             line-height: 1.4;
         }
 
-        /* Responsive: Κάθετη διάταξη σε κινητά */
+        /* Στυλ για τον μετρητή (Counter) */
+        .views {
+            margin-top: 30px;
+            opacity: 0.8;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .views img {
+            height: 20px; /* Ρυθμίζει το μέγεθος του counter */
+        }
+
+        /* Responsive */
         @media (max-width: 800px) {
             .cards-wrapper {
                 flex-direction: column;
@@ -124,7 +131,7 @@
 
     <div class="cards-wrapper">
         <div class="card">
-            <img src="ftylakis_logo.png" alt="ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Πουλάει φτηνά (Μπροστά)">
+            <img src="ftylakis_logo.png" alt="ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Πουλάει φτηνά">
         </div>
 
         <div class="middle-block">
@@ -137,10 +144,26 @@
         </div>
 
         <div class="card">
-            <img src="ftylakis_logo2.png" alt="ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Πουλάει φτηνά (Πίσω)">
+            <img src="ftylakis_logo2.png" alt="ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Πουλάει φτηνά">
         </div>
     </div>
 
+    <div class="views">
+        <img id="hitCounter" alt="Views Counter">
+    </div>
+
 </div>
+
+<script>
+(function () {
+  // Παίρνει τη διεύθυνση της σελίδας για να μετράει μοναδικά
+  var url = encodeURIComponent(window.location.href);
+  // Δημιουργεί την εικόνα του counter
+  document.getElementById("hitCounter").src =
+    "https://hitscounter.dev/api/hit?url=" + url +
+    "&label=Views&icon=eye&color=%232563eb&message=&style=flat&tz=UTC";
+})();
+</script>
+
 </body>
 </html>
