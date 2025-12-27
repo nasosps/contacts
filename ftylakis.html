@@ -51,6 +51,19 @@
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             border-radius: 4px;
+            transition: transform 0.2s ease; /* Προσθήκη μικρού εφέ στο hover */
+        }
+
+        /* Εφέ όταν περνάει το ποντίκι πάνω από την κάρτα-σύνδεσμο */
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+        }
+
+        /* ΝΕΟ: Στυλ για τον σύνδεσμο μέσα στην κάρτα */
+        .card a {
+            display: block;
+            text-decoration: none;
         }
 
         .card img {
@@ -108,7 +121,7 @@
             display: flex;
             justify-content: center;
         }
-        
+         
         .views img {
             height: 20px; /* Ρυθμίζει το μέγεθος του counter */
         }
@@ -131,7 +144,9 @@
 
     <div class="cards-wrapper">
         <div class="card">
-            <img src="ftylakis_logo0.png" alt="ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Πουλάει φθηνά">
+            <a href="https://ftylakis.gr/" target="_blank" rel="noopener noreferrer">
+                <img src="ftylakis_logo0.png" alt="ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Πουλάει φθηνά - Μετάβαση στο site">
+            </a>
         </div>
 
         <div class="middle-block">
@@ -144,7 +159,9 @@
         </div>
 
         <div class="card">
-            <img src="ftylakis_logo2.png" alt="ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Πουλάει φθηνά">
+             <a href="https://ftylakis.gr/" target="_blank" rel="noopener noreferrer">
+                <img src="ftylakis_logo2.png" alt="ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Πουλάει φθηνά - Μετάβαση στο site">
+            </a>
         </div>
     </div>
 
@@ -166,8 +183,4 @@
 </script>
 
 </body>
-
 </html>
-
-
-
