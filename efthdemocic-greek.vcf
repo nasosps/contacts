@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Δρ. Ευθύμιος Δημοσθένους
+N:Δημοσθένους;Ευθύμιος;Δρ.;;
+ORG:Creta InterClinic
+TITLE:Χειρουργός Μαιευτήρας Γυναικολόγος
+ROLE:Διευθυντής Μαιευτικής - Γυναικολογικής Κλινικής Βενιζελείου Νοσοκομείου Ηρακλείου
+TEL;TYPE=CELL,VOICE:+306979973252
+TEL;TYPE=WORK,VOICE:+302810396700
+TEL;TYPE=WORK,VOICE:+302810396752
+TEL;TYPE=WORK,VOICE:+302810396751
+TEL;TYPE=WORK,VOICE:+302810396732
+TEL;TYPE=WORK,VOICE:+302810396731
+EMAIL;TYPE=INTERNET,PREF:efthdemo@yahoo.gr
+ADR;TYPE=WORK:;;Αρχ. Μακαρίου 56;Ηράκλειο;Κρήτης;71202;Ελλάδα
+END:VCARD

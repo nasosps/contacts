@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Dr. Efthymios Dimosthenous
+N:Dimosthenous;Efthymios;Dr.;;
+ORG:Creta InterClinic
+TITLE:Surgeon - Obstetrician Gynecologist
+ROLE:Director of the Obstetrics & Gynecology Clinic of Venizeleio Hospital Heraklion
+TEL;TYPE=CELL,VOICE:+306979973252
+TEL;TYPE=WORK,VOICE:+302810396700
+TEL;TYPE=WORK,VOICE:+302810396752
+TEL;TYPE=WORK,VOICE:+302810396751
+TEL;TYPE=WORK,VOICE:+302810396732
+TEL;TYPE=WORK,VOICE:+302810396731
+EMAIL;TYPE=INTERNET,PREF:efthdemo@yahoo.gr
+ADR;TYPE=WORK:;;56 Archiepiskopou Makariou Str.;Heraklion;Crete;71202;Greece
+END:VCARD

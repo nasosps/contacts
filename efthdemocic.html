@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Επαφή - Ευθύμιος Δημοσθένους | Creta InterClinic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                radial-gradient(circle at top, rgba(240, 224, 204, 0.2), transparent 34%),
+                linear-gradient(180deg, #5c524c 0%, #332d2b 100%);
+            color: #f6efe6;
+        }
+
+        .page {
+            width: min(100%, 1120px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .cards-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .card-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .card {
+            width: min(100%, 1040px);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.34);
+            background: #f6efe4;
+        }
+
+        .card img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: #b43d35;
+            color: #fff9f4;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 10px 24px rgba(128, 33, 29, 0.32);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .button:hover {
+            background: #9c2f29;
+            transform: translateY(-1px);
+            box-shadow: 0 14px 28px rgba(128, 33, 29, 0.36);
+        }
+
+        .hint {
+            max-width: 560px;
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: rgba(246, 239, 230, 0.82);
+        }
+
+        .nael-credit {
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.5;
+            color: rgba(246, 239, 230, 0.72);
+        }
+
+        .nael-credit a {
+            color: inherit;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: 12px;
+            }
+
+            .page {
+                gap: 20px;
+            }
+
+            .cards-wrapper {
+                gap: 16px;
+            }
+
+            .card-section {
+                gap: 12px;
+            }
+
+            .card {
+                border-radius: 12px;
+            }
+
+            .button {
+                width: min(100%, 340px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="cards-wrapper">
+        <div class="card-section">
+            <div class="card">
+                <img src="efthdemocic-card-english.jpg" alt="Αγγλική επαγγελματική κάρτα Ευθύμιου Δημοσθένους">
+            </div>
+
+            <a class="button" href="efthdemocic-english.vcf" download="efthdemocic-english.vcf">Download English vCard</a>
+        </div>
+
+        <div class="card-section">
+            <div class="card">
+                <img src="efthdemocic-card-greek.jpg" alt="Ελληνική επαγγελματική κάρτα Ευθύμιου Δημοσθένους">
+            </div>
+
+            <a class="button" href="efthdemocic-greek.vcf" download="efthdemocic-greek.vcf">Λήψη ελληνικής vCard</a>
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="hint">
+            Σε Android ή iPhone πατήστε το κουμπί και ανοίξτε το αρχείο για να αποθηκεύσετε την επαφή στις Επαφές της συσκευής.
+        </div>
+    </div>
+
+    <div class="nael-credit">
+        <span>created by NAEL -</span>
+        <a href="https://nasosps.github.io/page/" target="_blank" rel="noopener">Link</a>
+    </div>
+</div>
+</body>
+</html>
